@@ -1,0 +1,39 @@
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    width: 100%;
+
+    .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        display: flex;
+        img {
+            height: 80px;
+            width: 120px;
+        }
+    }
+    .linksWrapper {
+        display: flex;
+        gap: 15px;
+        .navLink {
+            cursor: pointer;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+    ul {
+        display: flex;
+        padding: 0;
+        gap: 8px;
+        list-style-type: none;
+    }
+}

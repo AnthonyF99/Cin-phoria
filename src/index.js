@@ -1,15 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { AnimatePresence } from 'motion/react';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
+} from 'react-router-dom';
 import './index.css';
-import App from './App';
+import Home from './pages/home';
+import Movie from './pages/movie';
+import Error from './pages/404';
+import Header from './components/header/header.jsx';
+import Footer from './components/footer/footer.jsx';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const AnimatedRoutes = () => {
+    const location = useLocation(); // Utilisé pour détecter la route active.
+
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location}>
+                <Route path="/" element={<Home />} /> {/* Page d'accueil */}
+                <Route path="/movie/:id" element={<Movie />} />
+                {/* Page de détails du film */}
+                <Route path="*" element={<Error />} /> {/* Page 404 */}
+            </Routes>
+        </AnimatePresence>
+    );
+};
+
+const App = () => (
+    <React.StrictMode>
+        <Router>
+            <Header />
+            <AnimatedRoutes />
+            <Footer />
+        </Router>
+    </React.StrictMode>
 );
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

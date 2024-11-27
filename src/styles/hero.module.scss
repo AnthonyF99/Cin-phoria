@@ -1,0 +1,25 @@
+.heroContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    width: 100%;
+    height: 728px;
+
+    .heroInfo {
+        color: white;
+        margin-left: -40%;
+        text-align: center;
+        max-width: 1440px;
+        .ctaBtn {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 10%;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 80px;
+            font-weight: bold;
+            background-color: red;
+        }
+    }
+}

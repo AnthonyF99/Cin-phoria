@@ -1,0 +1,11 @@
+[
+    {
+        "title": "Ergo proxy",
+        "poster": "/assets/onDisplay/affiche.gif",
+        "background": "/assets/onDisplay/fond.gif",
+        "tag": "Action",
+        "genre": "Sci-Fi, Drama, Romance, Action",
+        "duration": "2h30",
+        "showtimes": ["15:00", "17:00", "19:00", "21:00"]
+    }
+]

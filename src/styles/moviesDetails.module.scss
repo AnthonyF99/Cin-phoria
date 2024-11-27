@@ -1,0 +1,265 @@
+.movieDetails {
+    position: relative;
+    height: auto;
+    margin-bottom: 50%;
+    .top {
+        width: 100%;
+        min-height: 728px;
+        color: white;
+        /* Overlay sombre */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(104, 104, 104, 0.3);
+            z-index: 1;
+        }
+        .posterContainer {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            height: 728px;
+            width: 480px;
+            z-index: 2;
+            border-radius: 5px;
+            img {
+                object-fit: cover;
+                height: 728px;
+                width: 480px;
+                z-index: 2;
+                border-radius: 5px;
+            }
+        }
+        .details {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 38%;
+            top: 60%;
+            z-index: 2;
+            width: 40%;
+            box-sizing: border-box;
+            .movieTitle span {
+                font-size: 0.5em;
+            }
+            .movieDescription {
+                font-size: 1em;
+                max-height: 80px;
+                overflow-y: auto;
+                padding-right: 10px;
+                padding-bottom: 5px;
+                -webkit-mask-image: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 1) 75%,
+                    /* Reste opaque plus longtemps (75%) */ rgba(0, 0, 0, 0)
+                        100% /* Devenir transparent progressivement */
+                );
+                mask-image: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 1) 75%,
+                    /* Reste opaque plus longtemps (75%) */ rgba(0, 0, 0, 0)
+                        100% /* Devenir transparent progressivement */
+                );
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10%;
+            background: #888;
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    }
+
+    /* BOTTOM PART OF THE PAGE */
+    .bottom {
+        display: flex;
+        position: relative;
+
+        .leftBottom {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: absolute;
+            top: 400px;
+            left: 10%;
+            width: 480px;
+            z-index: 2;
+            .checkout {
+                color: white;
+                border-radius: 5px;
+                display: flex;
+                background: rgb(71, 71, 71);
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .checkoutCost {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font-weight: bold;
+                margin-top: 35px;
+                margin-bottom: 35px;
+                #price {
+                    font-size: 1.1em;
+                }
+            }
+            .checkoutConfirmation {
+                display: flex;
+                justify-content: space-between;
+                .checkoutBtns {
+                    font-size: 20px;
+                    border: 1px solid red;
+                    border-radius: 5px;
+                    padding: 10px 50px;
+                    background-color: transparent;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    &:disabled {
+                        background-color: grey !important;
+                        border: none;
+                        cursor: not-allowed;
+                    }
+                }
+
+                #cancel {
+                    color: red;
+                    width: 187px;
+                    max-width: 187px;
+                }
+                #next {
+                    background-color: red;
+                    color: white;
+                    font-weight: bold;
+                    width: 204px;
+                    max-width: 204px;
+                }
+            }
+        }
+
+        /* Reservation part */
+
+        .rightBottom {
+            position: absolute;
+            left: calc(0% + 40% + 20px);
+            width: 40%;
+            height: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            color: black;
+            z-index: 2;
+            .stepProgression,
+            .dateContainer,
+            .movieTimeContainer {
+                margin-bottom: 20px;
+            }
+            .stepProgression {
+                display: flex;
+                justify-content: space-between;
+                text-transform: uppercase;
+            }
+            .dateContainer {
+                .month {
+                    text-align: center;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .chooseDate {
+                    display: flex;
+                    justify-content: space-between;
+                    .dateInfo {
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                }
+            }
+            .movieTimeContainer {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding: 20px 0;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    top: 0;
+                    left: 0;
+                    background-color: black;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: black;
+                }
+                .movieTimeTitle {
+                    text-align: center;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+            .movieTime {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+}
+/* Gestion des sièges */
+.seatsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    background-color: #474747;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #555;
+    }
+    &.selected {
+        background-color: #ff0004;
+    }
+}

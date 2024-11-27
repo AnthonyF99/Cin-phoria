@@ -1,0 +1,138 @@
+{
+    "seating": [
+        {
+            "row": 1,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 }
+            ]
+        },
+        {
+            "row": 2,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 },
+                { "seatNumber": 12 },
+                { "seatNumber": 13 }
+            ]
+        },
+        {
+            "row": 3,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 },
+                { "seatNumber": 12 },
+                { "seatNumber": 13 },
+                { "seatNumber": 14 },
+                { "seatNumber": 15 }
+            ]
+        },
+        {
+            "row": 4,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 },
+                { "seatNumber": 12 },
+                { "seatNumber": 13 },
+                { "seatNumber": 14 },
+                { "seatNumber": 15 }
+            ]
+        },
+        {
+            "row": 5,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 },
+                { "seatNumber": 12 },
+                { "seatNumber": 13 },
+                { "seatNumber": 14 },
+                { "seatNumber": 15 }
+            ]
+        },
+        {
+            "row": 6,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 },
+                { "seatNumber": 12 },
+                { "seatNumber": 13 },
+                { "seatNumber": 14 },
+                { "seatNumber": 15 }
+            ]
+        },
+        {
+            "row": 7,
+            "seats": [
+                { "seatNumber": 1 },
+                { "seatNumber": 2 },
+                { "seatNumber": 3 },
+                { "seatNumber": 4 },
+                { "seatNumber": 5 },
+                { "seatNumber": 6 },
+                { "seatNumber": 7 },
+                { "seatNumber": 8 },
+                { "seatNumber": 9 },
+                { "seatNumber": 10 },
+                { "seatNumber": 11 },
+                { "seatNumber": 12 },
+                { "seatNumber": 13 },
+                { "seatNumber": 14 },
+                { "seatNumber": 15 }
+            ]
+        }
+    ]
+}
