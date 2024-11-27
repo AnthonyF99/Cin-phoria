@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Cinéphoria - Le site de cinéma fictif
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cinéphoria est un site de réservation de tickets de cinéma où vous pouvez choisir le film que vous souhaitez voir, réserver vos sièges, et définir l'horaire et la date de la séance. Tout cela dans une interface simple et interactive construite avec React. Le meilleur, c'est que tout est fictif et totalement gratuit ! 😄
 
-## Available Scripts
+## Technologies utilisées
 
-In the project directory, you can run:
+React : Framework JavaScript pour construire l'interface utilisateur.
 
-### `npm start`
+React Router DOM : Pour la gestion de la navigation entre les pages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+SCSS : Pour le stylisme du site avec une approche modulaire.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Framer Motion : Pour ajouter des animations fluides et interactives aux composants.
 
-### `npm test`
+HTML : Structure de base de la page web.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Fonctionnalités
 
-### `npm run build`
+Page d'accueil : Liste des films disponibles avec des détails comme l'image du film, le titre et une brève description.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Barre de recherche : Recherche un film parmi ceux disponibles dans la base de données (fictive).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Détails du film : Choisissez un film, puis réservez votre place en sélectionnant l'heure, la date, la salle, et enfin les sièges que vous souhaitez.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Réservation gratuite : Comme il s'agit d'un projet fictif, la réservation de billets est gratuite (pas de paiement impliqué).
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Avant de commencer, assurez-vous d'avoir npm installés sur votre machine.
+Puis clonez ce dépôt sur votre machine locale à l'aide de la commande suivante :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`git clone git@github.com:AnthonyF99/Cin-phoria.git`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation des dépendances
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`cd cinephoria`
+`npm install`
 
-## Learn More
+### Lancer le projet
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Une fois les dépendances installées, vous pouvez démarrer le projet en mode développement :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm start`
