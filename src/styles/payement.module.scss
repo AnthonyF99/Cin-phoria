@@ -1,0 +1,74 @@
+.payementContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .payementCard {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: #d9d9d9;
+        border-radius: 5px;
+        height: 350px;
+        padding: 20px;
+        .leftPart {
+            .cardVisualizer {
+                position: absolute;
+                z-index: 3;
+                transform: translateX(-50px);
+                width: 392px;
+                height: 199px;
+                background-color: #9a9a9a;
+            }
+        }
+        .rightPart {
+            position: relative;
+            .cardInfo {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                transform: translateX(400px);
+                z-index: 2;
+            }
+            .expCV {
+                display: flex;
+                position: absolute;
+                transform: translateX(400px) translateY(215px);
+                gap: 20px;
+                input {
+                    width: 10%;
+                }
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    transform: translateX(0px) translateY(-50px);
+                    gap: 85px;
+                }
+            }
+        }
+    }
+}
+
+/* Separator */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
+        padding: 0 10px;
+    }
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-top: 1px solid #ccc;
+    margin: 0 10px;
+}

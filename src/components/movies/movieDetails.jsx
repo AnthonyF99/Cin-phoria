@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Styles from '../../styles/moviesDetails.module.scss';
 import Seats from './seats';
+import Payement from '../payement/payement';
 
 export default function MovieDetails({ movie }) {
     const [isTransitionFinished, setIsTransitionFinished] = useState(false);
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const [currentStep, setCurrentStep] = useState(1);
+    const maxStep = 3;
 
     useEffect(() => {
         // Délai pour que la transition se termine avant le scroll
@@ -34,6 +37,18 @@ export default function MovieDetails({ movie }) {
     };
 
     const isButtonDisabled = selectedSeats.length === 0; // Vérifie si aucun siège n'est sélectionné
+
+    const nextStep = () => {
+        if (currentStep < maxStep) {
+            setCurrentStep(currentStep + 1);
+        }
+    };
+
+    const prevStep = () => {
+        if (currentStep > 1) {
+            setCurrentStep(currentStep - 1);
+        }
+    };
 
     if (!movie) {
         return (
@@ -103,7 +118,12 @@ export default function MovieDetails({ movie }) {
                         <button
                             className={Styles.checkoutBtns}
                             id={Styles.cancel}
-                            onClick={() => setSelectedSeats([])} // Reset selectedSeats
+                            onClick={() => {
+                                if (currentStep === 1) {
+                                    setSelectedSeats([]); // Réinitialise les sièges uniquement si c'est l'étape 1
+                                }
+                                prevStep();
+                            }} //Reset & prevstep
                         >
                             Cancel
                         </button>
@@ -111,6 +131,7 @@ export default function MovieDetails({ movie }) {
                             className={Styles.checkoutBtns}
                             id={Styles.next}
                             disabled={isButtonDisabled}
+                            onClick={nextStep}
                         >
                             Next
                         </button>
@@ -118,63 +139,97 @@ export default function MovieDetails({ movie }) {
                 </div>
                 <div className={Styles.rightBottom}>
                     <div className={Styles.stepProgression}>
-                        <p>Choose your place</p>
-                        <p>Payment</p>
-                        <p>Ticket</p>
+                        <p
+                            className={
+                                currentStep === 1
+                                    ? Styles.activeStep
+                                    : Styles.step
+                            }
+                        >
+                            Choose your place
+                        </p>
+                        <p
+                            className={
+                                currentStep === 2
+                                    ? Styles.activeStep
+                                    : Styles.step
+                            }
+                        >
+                            Payment
+                        </p>
+                        <p
+                            className={
+                                currentStep === 3
+                                    ? Styles.activeStep
+                                    : Styles.step
+                            }
+                        >
+                            Ticket
+                        </p>
                     </div>
-                    <div className={Styles.dateContainer}>
-                        <p className={Styles.month}>Janvier</p>
-                        <div className={Styles.chooseDate}>
-                            <div className={Styles.dateInfo}>
-                                <p>Mar</p>
-                                <span>4</span>
+                    {currentStep === 1 && (
+                        <>
+                            <div className={Styles.dateContainer}>
+                                <p className={Styles.month}>Janvier</p>
+                                <div className={Styles.chooseDate}>
+                                    <div className={Styles.dateInfo}>
+                                        <p>Mar</p>
+                                        <span>4</span>
+                                    </div>
+                                    <div className={Styles.dateInfo}>
+                                        <p>Mer</p>
+                                        <spab>5</spab>
+                                    </div>
+                                    <div className={Styles.dateInfo}>
+                                        <p>Jeu</p>
+                                        <span>6</span>
+                                    </div>
+                                    <div className={Styles.dateInfo}>
+                                        <p>Ven</p>
+                                        <span>7</span>
+                                    </div>
+                                    <div className={Styles.dateInfo}>
+                                        <p>Sam</p>
+                                        <span>8</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className={Styles.dateInfo}>
-                                <p>Mer</p>
-                                <spab>5</spab>
+                            <div className={Styles.movieTimeContainer}>
+                                <p className={Styles.movieTimeTitle}>Horaire</p>
+                                <div className={Styles.movieTime}>
+                                    <div className={Styles.movieTimeInfo}>
+                                        <p>16h30</p>
+                                        <span>Salle 4</span>
+                                    </div>
+                                    <div className={Styles.movieTimeInfo}>
+                                        <p>16h30</p>
+                                        <span>Salle 4</span>
+                                    </div>
+                                    <div className={Styles.movieTimeInfo}>
+                                        <p>16h30</p>
+                                        <span>Salle 4</span>
+                                    </div>
+                                    <div className={Styles.movieTimeInfo}>
+                                        <p>16h30</p>
+                                        <span>Salle 4</span>
+                                    </div>
+                                    <div className={Styles.movieTimeInfo}>
+                                        <p>16h30</p>
+                                        <span>Salle 4</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className={Styles.dateInfo}>
-                                <p>Jeu</p>
-                                <span>6</span>
+                            <div className={Styles.chooseSeat}>
+                                <Seats onSeatSelect={handleSeatSelect} />
                             </div>
-                            <div className={Styles.dateInfo}>
-                                <p>Ven</p>
-                                <span>7</span>
-                            </div>
-                            <div className={Styles.dateInfo}>
-                                <p>Sam</p>
-                                <span>8</span>
-                            </div>
+                        </>
+                    )}
+                    {/* Étape 2 : Paiement */}
+                    {currentStep === 2 && (
+                        <div>
+                            <Payement />
                         </div>
-                    </div>
-                    <div className={Styles.movieTimeContainer}>
-                        <p className={Styles.movieTimeTitle}>Horaire</p>
-                        <div className={Styles.movieTime}>
-                            <div className={Styles.movieTimeInfo}>
-                                <p>16h30</p>
-                                <span>Salle 4</span>
-                            </div>
-                            <div className={Styles.movieTimeInfo}>
-                                <p>16h30</p>
-                                <span>Salle 4</span>
-                            </div>
-                            <div className={Styles.movieTimeInfo}>
-                                <p>16h30</p>
-                                <span>Salle 4</span>
-                            </div>
-                            <div className={Styles.movieTimeInfo}>
-                                <p>16h30</p>
-                                <span>Salle 4</span>
-                            </div>
-                            <div className={Styles.movieTimeInfo}>
-                                <p>16h30</p>
-                                <span>Salle 4</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={Styles.chooseSeat}>
-                        <Seats onSeatSelect={handleSeatSelect} />
-                    </div>
+                    )}
                 </div>
             </div>
         </div>

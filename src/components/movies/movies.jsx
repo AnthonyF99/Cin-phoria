@@ -67,7 +67,7 @@ export default function Movies() {
                             <div className={Styles.movieImage}>
                                 <img
                                     src={`${movie.poster}`}
-                                    alt={movie.title}
+                                    alt={`Affiche du film ${movie.title}`}
                                 />
                             </div>
                             <h2>{movie.title}</h2>
