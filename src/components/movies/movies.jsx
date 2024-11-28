@@ -29,7 +29,7 @@ export default function Movies() {
     useEffect(() => {
         fetch('/data/movies.json')
             .then((response) => response.json())
-            .then((data) => setMovies(data))
+            .then((data) => setMovies(data.allMovies))
             .catch((error) => console.error('Error fetching movies:', error))
             .finally(() => setLoading(false));
     }, []);

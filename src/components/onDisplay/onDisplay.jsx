@@ -2,15 +2,30 @@ import Styles from '../../styles/onDisplay.module.scss';
 import { useState, useEffect } from 'react';
 import defaultPoster from '../../assets/onDisplay/affiche.gif';
 import defaultBg from '../../assets/onDisplay/fond.gif';
+import { Link } from 'react-router-dom';
 
 export default function OnDisplay() {
     const [movies, setMovies] = useState([]);
     const [selectedTime, setSelectedTime] = useState(null);
 
     useEffect(() => {
-        fetch('/data/onDisplay.json')
+        fetch('/data/movies.json')
             .then((response) => response.json())
-            .then((data) => setMovies(data))
+            .then((data) => {
+                // Associe les films affichés avec leurs détails complets
+                const enrichedMovies = data.onDisplay.map((onDisplayMovie) => {
+                    const movieDetails = data.allMovies.find(
+                        (movie) => movie.id === onDisplayMovie.id
+                    );
+
+                    return {
+                        ...onDisplayMovie, // Utilise les données spécifiques à onDisplay
+                        details: movieDetails, // Ajoute les détails du film (allMovies)
+                    };
+                });
+
+                setMovies(enrichedMovies);
+            })
             .catch((error) =>
                 console.error('Erreur lors du chargement des films :', error)
             );
@@ -50,17 +65,19 @@ export default function OnDisplay() {
                         </div>
                         <div className={Styles.onDisplaySeance}>
                             {(movie.showtimes || []).map((time) => (
-                                <button
-                                    key={time}
-                                    className={`${Styles.onDisplayBtn} ${
-                                        selectedTime === time
-                                            ? Styles.selected
-                                            : ''
-                                    }`}
-                                    onClick={() => setSelectedTime(time)}
-                                >
-                                    {time}
-                                </button>
+                                <Link to={`/movie/${movie.id}`}>
+                                    <button
+                                        key={time}
+                                        className={`${Styles.onDisplayBtn} ${
+                                            selectedTime === time
+                                                ? Styles.selected
+                                                : ''
+                                        }`}
+                                        onClick={() => setSelectedTime(time)}
+                                    >
+                                        {time}
+                                    </button>
+                                </Link>
                             ))}
                         </div>
                     </div>

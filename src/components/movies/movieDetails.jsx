@@ -178,7 +178,7 @@ export default function MovieDetails({ movie }) {
                                     </div>
                                     <div className={Styles.dateInfo}>
                                         <p>Mer</p>
-                                        <spab>5</spab>
+                                        <span>5</span>
                                     </div>
                                     <div className={Styles.dateInfo}>
                                         <p>Jeu</p>
@@ -241,7 +241,7 @@ MovieDetails.propTypes = {
         title: PropTypes.string.isRequired,
         poster: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        duration: PropTypes.number.isRequired,
+        duration: PropTypes.string.isRequired,
         genre: PropTypes.string.isRequired,
     }),
 };
