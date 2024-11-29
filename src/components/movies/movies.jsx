@@ -43,6 +43,16 @@ export default function Movies() {
         setQuery('');
     };
 
+    //Function to get the soon movie
+    const comingSoon = useCallback(() => {
+        const currentDate = new Date();
+        const soonMovies = movies.filter((movie) => {
+            const movieDate = new Date(movie.releaseDate);
+            return movieDate > currentDate; // keep movie that comme soon
+        });
+        setMovies(soonMovies); // update displayed movies list
+    }, [movies]);
+
     //Function to search movie
     const handleSearch = useCallback((event) => {
         setQuery(event.target.value);
@@ -53,7 +63,7 @@ export default function Movies() {
             .then((response) => response.json())
             .then((data) => {
                 setMovies(data.allMovies);
-                setOriginalData(data.allMovies); // Conserve une copie des données originales
+                setOriginalData(data.allMovies); // Keep a copy of original data
             })
             .catch((error) => console.error('Error fetching movies:', error))
             .finally(() => setLoading(false));
@@ -78,7 +88,9 @@ export default function Movies() {
                             Par date
                         </li>
                         <li className={Styles.filter}>Par catégorie</li>
-                        <li className={Styles.filter}>A venir</li>
+                        <li className={Styles.filter} onClick={comingSoon}>
+                            A venir
+                        </li>
                     </ul>
                 </div>
                 <div className={Styles.moviesSearch}>

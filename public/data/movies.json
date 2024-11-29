@@ -179,7 +179,7 @@
             "title": "The Godfather",
             "genre": "Crime",
             "poster": "/assets/Movies/Template.webp",
-            "releaseDate": "2023",
+            "releaseDate": "2026",
             "description": "La saga épique d'une famille de mafieux italienne aux États-Unis.",
             "duration": "2h58"
         },
@@ -188,7 +188,7 @@
             "title": "Shrek",
             "genre": "Animation",
             "poster": "/assets/Movies/Template.webp",
-            "releaseDate": "2024",
+            "releaseDate": "2025",
             "description": "Une aventure hilarante où un ogre sauve une princesse et découvre l'amitié.",
             "duration": "1h30"
         }
