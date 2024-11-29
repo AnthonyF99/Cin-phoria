@@ -1,6 +1,6 @@
 import Styles from '../../styles/hero.module.scss';
 import { useState } from 'react';
-import bgImage from '../../assets/Hero/herobg.gif';
+import bgImage from '../../assets/Hero/herobg.jpg';
 
 export default function Hero() {
     const [bg, setBg] = useState(bgImage);
@@ -14,7 +14,7 @@ export default function Hero() {
             }}
         >
             <div className={Styles.heroInfo}>
-                <h1>Titre du Film</h1>
+                <h1>Ergo Proxy</h1>
                 <button className={Styles.ctaBtn}>Reserver maintenant</button>
             </div>
         </div>

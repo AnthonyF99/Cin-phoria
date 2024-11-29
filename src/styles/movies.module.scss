@@ -3,19 +3,18 @@
     flex-direction: column;
     .moviesNav {
         display: flex;
-        flex-direction: column;
-        ul {
+        justify-content: space-between;
+        align-items: center;
+        .moviesFilters ul,
+        .moviesSearch ul {
             display: flex;
             align-items: center;
             list-style: none;
             gap: 16px;
             font-weight: bold;
-        }
-        &::after {
-            content: '';
-            width: 100%;
-            height: 1px;
-            background-color: black;
+            .filter {
+                cursor: pointer;
+            }
         }
     }
     .moviesListContainer {
@@ -25,6 +24,12 @@
         gap: 52px;
         margin-bottom: 50px;
         flex-wrap: wrap;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: black;
+        }
         a {
             text-decoration: none;
             color: black;
@@ -35,6 +40,11 @@
             position: relative;
             h2 {
                 text-align: center;
+            }
+            p {
+                margin-top: -10px;
+                text-align: center;
+                font-weight: bold;
             }
             .movieImage {
                 overflow: hidden;

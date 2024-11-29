@@ -69,10 +69,10 @@ export default function Header() {
                     </ul>
                     <ul className={Styles.navBtn}>
                         <li className={Styles.navLink}>
-                            <button>Rejoindre</button>
+                            <button id={Styles.join}>Rejoindre</button>
                         </li>
                         <li className={Styles.navLink}>
-                            <button>Se connecter</button>
+                            <button id={Styles.connect}>Se connecter</button>
                         </li>
                         <li className={Styles.navLink}>
                             <button>lang</button>

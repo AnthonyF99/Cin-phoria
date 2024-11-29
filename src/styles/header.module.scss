@@ -25,6 +25,20 @@
         gap: 15px;
         .navLink {
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            button {
+                background-color: black;
+                font-weight: bolder;
+                text-transform: uppercase;
+                border: none;
+                color: white;
+                border-radius: 5px;
+                padding: 10px;
+            }
+            #connect {
+                background-color: red;
+            }
             &:hover {
                 color: red;
             }

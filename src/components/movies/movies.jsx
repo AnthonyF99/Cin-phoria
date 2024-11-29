@@ -7,6 +7,8 @@ export default function Movies() {
     const [visibleMovies, setVisibleMovies] = useState(8);
     const [loading, setLoading] = useState(true);
     const [query, setQuery] = useState('');
+    const [isAscending, setIsAscending] = useState(true);
+    const [originalData, setOriginalData] = useState([]);
 
     // Function to show more movies
     const handleShowMore = useCallback(
@@ -21,7 +23,27 @@ export default function Movies() {
         );
     }, [movies, query]);
 
-    //Function to serch movie
+    // Sort Ascendant & Descendant
+    const sortDate = () => {
+        const sortedData = [...movies].sort((a, b) => {
+            if (isAscending) {
+                return new Date(a.releaseDate) - new Date(b.releaseDate);
+            } else {
+                return new Date(b.releaseDate) - new Date(a.releaseDate);
+            }
+        });
+        setMovies(sortedData);
+        setIsAscending(!isAscending);
+    };
+
+    // Function to reset data
+    const resetData = () => {
+        setMovies(originalData);
+        setIsAscending(true);
+        setQuery('');
+    };
+
+    //Function to search movie
     const handleSearch = useCallback((event) => {
         setQuery(event.target.value);
     }, []);
@@ -29,7 +51,10 @@ export default function Movies() {
     useEffect(() => {
         fetch('/data/movies.json')
             .then((response) => response.json())
-            .then((data) => setMovies(data.allMovies))
+            .then((data) => {
+                setMovies(data.allMovies);
+                setOriginalData(data.allMovies); // Conserve une copie des données originales
+            })
             .catch((error) => console.error('Error fetching movies:', error))
             .finally(() => setLoading(false));
     }, []);
@@ -44,20 +69,30 @@ export default function Movies() {
     return (
         <div className={Styles.moviesContainer}>
             <div className={Styles.moviesNav}>
-                <ul>
-                    <li>Tout les films</li>
-                    <li>Par date</li>
-                    <li>Par catégorie</li>
-                    <li>A venir</li>
-                    <li>
-                        <input
-                            type="text"
-                            value={query}
-                            onChange={handleSearch}
-                            placeholder="Rechercher un film"
-                        />
-                    </li>
-                </ul>
+                <div className={Styles.moviesFilters}>
+                    <ul>
+                        <li className={Styles.filter} onClick={resetData}>
+                            Tout les films
+                        </li>
+                        <li className={Styles.filter} onClick={sortDate}>
+                            Par date
+                        </li>
+                        <li className={Styles.filter}>Par catégorie</li>
+                        <li className={Styles.filter}>A venir</li>
+                    </ul>
+                </div>
+                <div className={Styles.moviesSearch}>
+                    <ul>
+                        <li>
+                            <input
+                                type="text"
+                                value={query}
+                                onChange={handleSearch}
+                                placeholder="Rechercher un film"
+                            />
+                        </li>
+                    </ul>
+                </div>
             </div>
             <hr></hr>
             <div className={Styles.moviesListContainer}>
@@ -71,6 +106,7 @@ export default function Movies() {
                                 />
                             </div>
                             <h2>{movie.title}</h2>
+                            <p>{movie.releaseDate}</p>
                         </Link>
                         <div className={Styles.movieHours}>
                             <button>15:00</button>

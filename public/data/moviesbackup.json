@@ -1,0 +1,196 @@
+{
+    "onDisplay": [
+        {
+            "id": 2,
+            "title": "Ergo Proxy",
+            "poster": "/assets/onDisplay/affiche.gif",
+            "background": "/assets/onDisplay/fond.gif",
+            "tag": "Action",
+            "genre": "Sci-Fi, Drama, Romance, Action",
+            "duration": "2h30",
+            "showtimes": ["15:00", "17:00", "19:00", "21:00"]
+        }
+    ],
+    "allMovies": [
+        {
+            "id": 1,
+            "title": "Berserk",
+            "genre": "Sci-Fi",
+            "poster": "/assets/Movies/Berserk.jpg",
+            "releaseDate": "2023",
+            "description": "Dans un futur dystopique, un guerrier lutte contre des forces technologiques et mystiques pour sauver son monde.",
+            "duration": "2h00"
+        },
+        {
+            "id": 2,
+            "title": "Ergo Proxy",
+            "genre": "Sci-Fi, Drama, Romance, Action",
+            "poster": "/assets/Movies/ErgoProxy.jpeg",
+            "releaseDate": "2024",
+            "description": "Dans un futur post-apocalyptique, l'humanité survit dans des cités fermées, protégées d'une atmosphère toxique. Re-l Mayer, une enquêtrice de la ville de Romdeau, découvre une série de meurtres liés à des Autoreivs, des androïdes censés être sans émotion. Lorsqu'elle croise Vincent Law, un homme aux pouvoirs mystérieux, elle se lance dans une enquête qui va remettre en question la nature de l'humanité, des consciences et de l'existence elle-même. Entre mystère et philosophie, Ergo Proxy explore des thèmes profonds sur l'âme et l’intelligence artificielle dans un monde en ruine.",
+            "duration": "1h55"
+        },
+        {
+            "id": 3,
+            "title": "The Dark Knight",
+            "genre": "Action",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Batman affronte le Joker dans une bataille pour l'âme de Gotham City.",
+            "duration": "2h32"
+        },
+        {
+            "id": 4,
+            "title": "Titanic",
+            "genre": "Romance",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Une romance tragique se développe à bord du légendaire paquebot Titanic.",
+            "duration": "3h15"
+        },
+        {
+            "id": 5,
+            "title": "Shrek",
+            "genre": "Humour",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Un ogre grincheux entreprend une aventure hilarante pour sauver une princesse.",
+            "duration": "1h30"
+        },
+        {
+            "id": 6,
+            "title": "Franklin",
+            "genre": "Animation",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Les aventures d'une tortue curieuse et de ses amis dans un monde coloré.",
+            "duration": "1h10"
+        },
+        {
+            "id": 7,
+            "title": "Ghost in the Shell",
+            "genre": "Sci-Fi",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Une cyber-policière traque un hacker insaisissable dans un monde futuriste.",
+            "duration": "1h50"
+        },
+        {
+            "id": 8,
+            "title": "Ghost Land",
+            "genre": "Horreur",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Un groupe d'amis se retrouve piégé dans un manoir hanté par des forces maléfiques.",
+            "duration": "1h45"
+        },
+        {
+            "id": 9,
+            "title": "The Clown",
+            "genre": "Romance",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Une romance improbable entre une artiste de cirque et un mystérieux clown.",
+            "duration": "1h40"
+        },
+        {
+            "id": 10,
+            "title": "The Matrix",
+            "genre": "Sci-Fi",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Un hacker découvre une réalité simulée et combat des machines pour libérer l'humanité.",
+            "duration": "2h16"
+        },
+        {
+            "id": 11,
+            "title": "Inception",
+            "genre": "Sci-Fi",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Un voleur manipule les rêves pour implanter une idée dans l'esprit d'une cible.",
+            "duration": "2h28"
+        },
+        {
+            "id": 12,
+            "title": "Interstellar",
+            "genre": "Sci-Fi",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Un groupe d'astronautes voyage à travers un trou de ver pour sauver l'humanité.",
+            "duration": "2h49"
+        },
+        {
+            "id": 13,
+            "title": "Avatar",
+            "genre": "Sci-Fi",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Sur une planète lointaine, un marine paraplégique rejoint une lutte pour la survie.",
+            "duration": "2h42"
+        },
+        {
+            "id": 14,
+            "title": "Mad Max: Fury Road",
+            "genre": "Action",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Dans un désert post-apocalyptique, une lutte acharnée pour la survie prend forme.",
+            "duration": "2h00"
+        },
+        {
+            "id": 15,
+            "title": "Spider-Man: No Way Home",
+            "genre": "Action",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Spider-Man fait face aux conséquences de son identité révélée et à d'anciens ennemis.",
+            "duration": "2h28"
+        },
+        {
+            "id": 16,
+            "title": "Joker",
+            "genre": "Drama",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "L'origine sombre et poignante du célèbre méchant de Gotham City.",
+            "duration": "2h02"
+        },
+        {
+            "id": 17,
+            "title": "Guardians of the Galaxy",
+            "genre": "Action",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Un groupe de marginaux lutte pour protéger la galaxie contre une menace cosmique.",
+            "duration": "2h01"
+        },
+        {
+            "id": 18,
+            "title": "The Lion King",
+            "genre": "Animation",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "Une histoire intemporelle de courage et de responsabilité dans la savane africaine.",
+            "duration": "1h28"
+        },
+        {
+            "id": 19,
+            "title": "The Godfather",
+            "genre": "Crime",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2023",
+            "description": "La saga épique d'une famille de mafieux italienne aux États-Unis.",
+            "duration": "2h58"
+        },
+        {
+            "id": 20,
+            "title": "Shrek",
+            "genre": "Animation",
+            "poster": "/assets/Movies/Template.webp",
+            "releaseDate": "2024",
+            "description": "Une aventure hilarante où un ogre sauve une princesse et découvre l'amitié.",
+            "duration": "1h30"
+        }
+    ]
+}
