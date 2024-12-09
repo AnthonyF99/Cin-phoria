@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import defaultPoster from '../../assets/onDisplay/affiche.gif';
 import defaultBg from '../../assets/onDisplay/fond.gif';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function OnDisplay() {
     const [movies, setMovies] = useState([]);
     const [selectedTime, setSelectedTime] = useState(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetch('/data/movies.json')
@@ -33,7 +35,7 @@ export default function OnDisplay() {
 
     return (
         <div className={Styles.onDisplay}>
-            <p className={Styles.onDisplayTitle}>À l'affiche</p>
+            <p className={Styles.onDisplayTitle}>{t('onDisplay.title')}</p>
             {movies.map((movie, index) => (
                 <div
                     className={Styles.onDisplayContainer}

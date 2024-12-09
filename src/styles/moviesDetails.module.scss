@@ -1,11 +1,15 @@
 .movieDetails {
     position: relative;
+    display: flex;
+    flex-direction: column;
     height: auto;
-    margin-bottom: 50%;
+    margin-bottom: 35%;
     .top {
         width: 100%;
         min-height: 728px;
         color: white;
+        position: relative;
+        flex-grow: 1;
         /* Overlay sombre */
         &::before {
             content: '';
@@ -89,6 +93,8 @@
     .bottom {
         display: flex;
         position: relative;
+        margin-top: auto;
+        height: 768px;
 
         .leftBottom {
             display: flex;
@@ -211,13 +217,45 @@
                     font-weight: bold;
                     text-transform: uppercase;
                 }
+                .navigation {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .navButton {
+                        border: none;
+                        background: none;
+                        transition: 0.3s all;
+                        cursor: pointer;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
                 .chooseDate {
                     display: flex;
                     justify-content: space-between;
+                    .navButton {
+                        box-sizing: border-box;
+                        border: none;
+                        background: none;
+                        font-size: 24px;
+                        transition: 0.3s all;
+                        cursor: pointer;
+                        &:hover {
+                            color: red;
+                        }
+                    }
                     .dateInfo {
                         display: flex;
                         flex-direction: column;
                         text-align: center;
+                        cursor: pointer;
+                        user-select: none;
+                        &.selected {
+                            color: red;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
                     }
                 }
             }
@@ -255,6 +293,13 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                .movieTimeInfo {
+                    cursor: pointer;
+                    &.movieTimeInfo-selected {
+                        color: red;
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }
@@ -292,3 +337,5 @@
         background-color: #ff0004;
     }
 }
+
+/* Gestion date selector */

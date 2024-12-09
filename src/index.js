@@ -14,6 +14,7 @@ import Error from './pages/404';
 import Header from './components/header/header.jsx';
 import Footer from './components/footer/footer.jsx';
 import reportWebVitals from './reportWebVitals';
+import './i18n'; // Importe ton fichier i18n
 
 const AnimatedRoutes = () => {
     const location = useLocation(); // Utilisé pour détecter la route active.

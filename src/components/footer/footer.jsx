@@ -1,5 +1,6 @@
 import Styles from '../../styles/footer.module.scss';
 import Logo from '../../assets/Logo/logo-no-background.png';
+import '../../index.css';
 
 export default function Footer() {
     return (

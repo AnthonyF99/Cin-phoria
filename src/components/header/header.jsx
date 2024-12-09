@@ -2,10 +2,17 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 import Styles from '../../styles/header.module.scss';
 import Logo from '../../assets/Logo/logo-no-background.png';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
+    const { t, i18n } = useTranslation('header');
     const navigate = useNavigate();
     const location = useLocation();
+
+    const toggleLanguage = () => {
+        const nextLanguage = i18n.language === 'fr' ? 'en' : 'fr';
+        i18n.changeLanguage(nextLanguage);
+    };
 
     // Fonction pour naviguer ou scroller
     const handleNavigation = (section) => {
@@ -46,36 +53,43 @@ export default function Header() {
                             className={Styles.navLink}
                             onClick={() => handleNavigation('home')}
                         >
-                            Accueil
+                            {t('home')}
                         </li>
                         <li
                             className={Styles.navLink}
                             onClick={() => handleNavigation('onDisplay')}
                         >
-                            Film à l'affiche
+                            {t('onDisplay')}
                         </li>
                         <li
                             className={Styles.navLink}
                             onClick={() => handleNavigation('movies')}
                         >
-                            Réservations en ligne
+                            {t('reservation')}
                         </li>
                         <li
                             className={Styles.navLink}
                             onClick={() => handleNavigation('footer')}
                         >
-                            Contact
+                            {t('contact')}
                         </li>
                     </ul>
                     <ul className={Styles.navBtn}>
                         <li className={Styles.navLink}>
-                            <button id={Styles.join}>Rejoindre</button>
+                            <button id={Styles.join}> {t('join')}</button>
                         </li>
                         <li className={Styles.navLink}>
-                            <button id={Styles.connect}>Se connecter</button>
+                            <button id={Styles.connect}> {t('connect')}</button>
                         </li>
                         <li className={Styles.navLink}>
-                            <button>lang</button>
+                            <button id={Styles.lang} onClick={toggleLanguage}>
+                                <i className="fa-solid fa-globe"></i>
+                                {i18n.language === 'fr' ? (
+                                    <span>FR</span>
+                                ) : (
+                                    <span>EN</span>
+                                )}
+                            </button>
                         </li>
                     </ul>
                 </div>

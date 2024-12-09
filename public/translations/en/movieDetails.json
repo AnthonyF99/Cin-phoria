@@ -1,0 +1,10 @@
+{
+    "menu": {
+        "firstStep": "Choose your place",
+        "secondStep": "Payment"
+    },
+    "ctaBtns": {
+        "cancel": "Cancel",
+        "next": "Next"
+    }
+}

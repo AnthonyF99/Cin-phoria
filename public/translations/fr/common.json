@@ -1,0 +1,16 @@
+{
+    "hero": {
+        "heroBtn": "Réserver Maintenant"
+    },
+    "onDisplay": {
+        "title": "À l'affiche"
+    },
+    "movies": {
+        "allMovies": "Tout les films",
+        "date": "Par date",
+        "category": "Par catégorie",
+        "soon": "A venir",
+        "showMore": "Afficher plus",
+        "search": "Rechercher un film"
+    }
+}

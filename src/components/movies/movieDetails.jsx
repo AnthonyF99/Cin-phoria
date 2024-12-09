@@ -3,12 +3,24 @@ import PropTypes from 'prop-types';
 import Styles from '../../styles/moviesDetails.module.scss';
 import Seats from './seats';
 import Payement from '../payement/payement';
+import Ticket from './Ticket';
+import DateSelector from './dateSelector';
+import { format } from 'date-fns';
+import fr from 'date-fns/locale/fr';
+import { useTranslation } from 'react-i18next';
 
 export default function MovieDetails({ movie }) {
     const [isTransitionFinished, setIsTransitionFinished] = useState(false);
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [currentStep, setCurrentStep] = useState(1);
     const maxStep = 3;
+    const selectedSeat = selectedSeats[0] || {}; // Prend le premier siège ou un objet vide si aucun siège
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
+
+    const handleDateSelect = (date) => setSelectedDate(date);
+    const handleTimeSelect = (time) => setSelectedTime(time);
+    const { t } = useTranslation('movieDetails');
 
     useEffect(() => {
         // Délai pour que la transition se termine avant le scroll
@@ -92,51 +104,53 @@ export default function MovieDetails({ movie }) {
                 </div>
             </div>
             <div className={Styles.bottom}>
-                <div className={Styles.leftBottom}>
-                    {selectedSeats.length > 0 && (
-                        <>
-                            {selectedSeats.map((seat) => (
-                                <div
-                                    className={Styles.checkout}
-                                    key={seat.seatNumber}
-                                >
-                                    <p>
-                                        Rangée {seat.row} - Siège{' '}
-                                        {seat.seatNumber}{' '}
-                                        <span>Disponible</span>
-                                    </p>
-                                </div>
-                            ))}
+                {(currentStep === 1 || currentStep === 2) && (
+                    <div className={Styles.leftBottom}>
+                        {selectedSeats.length > 0 && (
+                            <>
+                                {selectedSeats.map((seat) => (
+                                    <div
+                                        className={Styles.checkout}
+                                        key={seat.seatNumber}
+                                    >
+                                        <p>
+                                            Rangée {seat.row} - Siège{' '}
+                                            {seat.seatNumber}{' '}
+                                            <span>Disponible</span>
+                                        </p>
+                                    </div>
+                                ))}
 
-                            <div className={Styles.checkoutCost}>
-                                <span>Total :</span>
-                                <span id={Styles.price}>Free</span>
-                            </div>
-                        </>
-                    )}
-                    <div className={Styles.checkoutConfirmation}>
-                        <button
-                            className={Styles.checkoutBtns}
-                            id={Styles.cancel}
-                            onClick={() => {
-                                if (currentStep === 1) {
-                                    setSelectedSeats([]); // Réinitialise les sièges uniquement si c'est l'étape 1
-                                }
-                                prevStep();
-                            }} //Reset & prevstep
-                        >
-                            Cancel
-                        </button>
-                        <button
-                            className={Styles.checkoutBtns}
-                            id={Styles.next}
-                            disabled={isButtonDisabled}
-                            onClick={nextStep}
-                        >
-                            Next
-                        </button>
+                                <div className={Styles.checkoutCost}>
+                                    <span>Total :</span>
+                                    <span id={Styles.price}>Free</span>
+                                </div>
+                            </>
+                        )}
+                        <div className={Styles.checkoutConfirmation}>
+                            <button
+                                className={Styles.checkoutBtns}
+                                id={Styles.cancel}
+                                onClick={() => {
+                                    if (currentStep === 1) {
+                                        setSelectedSeats([]); // Réinitialise les sièges uniquement si c'est l'étape 1
+                                    }
+                                    prevStep();
+                                }} //Reset & prevstep
+                            >
+                                {t('ctaBtns.cancel')}
+                            </button>
+                            <button
+                                className={Styles.checkoutBtns}
+                                id={Styles.next}
+                                disabled={isButtonDisabled}
+                                onClick={nextStep}
+                            >
+                                {t('ctaBtns.next')}
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
                 <div className={Styles.rightBottom}>
                     <div className={Styles.stepProgression}>
                         <p
@@ -146,7 +160,7 @@ export default function MovieDetails({ movie }) {
                                     : Styles.step
                             }
                         >
-                            Choose your place
+                            {t('menu.firstStep')}
                         </p>
                         <p
                             className={
@@ -155,7 +169,7 @@ export default function MovieDetails({ movie }) {
                                     : Styles.step
                             }
                         >
-                            Payment
+                            {t('menu.secondStep')}
                         </p>
                         <p
                             className={
@@ -169,56 +183,11 @@ export default function MovieDetails({ movie }) {
                     </div>
                     {currentStep === 1 && (
                         <>
-                            <div className={Styles.dateContainer}>
-                                <p className={Styles.month}>Janvier</p>
-                                <div className={Styles.chooseDate}>
-                                    <div className={Styles.dateInfo}>
-                                        <p>Mar</p>
-                                        <span>4</span>
-                                    </div>
-                                    <div className={Styles.dateInfo}>
-                                        <p>Mer</p>
-                                        <span>5</span>
-                                    </div>
-                                    <div className={Styles.dateInfo}>
-                                        <p>Jeu</p>
-                                        <span>6</span>
-                                    </div>
-                                    <div className={Styles.dateInfo}>
-                                        <p>Ven</p>
-                                        <span>7</span>
-                                    </div>
-                                    <div className={Styles.dateInfo}>
-                                        <p>Sam</p>
-                                        <span>8</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={Styles.movieTimeContainer}>
-                                <p className={Styles.movieTimeTitle}>Horaire</p>
-                                <div className={Styles.movieTime}>
-                                    <div className={Styles.movieTimeInfo}>
-                                        <p>16h30</p>
-                                        <span>Salle 4</span>
-                                    </div>
-                                    <div className={Styles.movieTimeInfo}>
-                                        <p>16h30</p>
-                                        <span>Salle 4</span>
-                                    </div>
-                                    <div className={Styles.movieTimeInfo}>
-                                        <p>16h30</p>
-                                        <span>Salle 4</span>
-                                    </div>
-                                    <div className={Styles.movieTimeInfo}>
-                                        <p>16h30</p>
-                                        <span>Salle 4</span>
-                                    </div>
-                                    <div className={Styles.movieTimeInfo}>
-                                        <p>16h30</p>
-                                        <span>Salle 4</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <DateSelector
+                                onDateSelect={handleDateSelect}
+                                onTimeSelect={handleTimeSelect}
+                            />
+
                             <div className={Styles.chooseSeat}>
                                 <Seats onSeatSelect={handleSeatSelect} />
                             </div>
@@ -228,6 +197,32 @@ export default function MovieDetails({ movie }) {
                     {currentStep === 2 && (
                         <div>
                             <Payement />
+                        </div>
+                    )}
+                    {/* Étape 3 : Ticket */}
+                    {currentStep === 3 && selectedSeats.length > 0 && (
+                        <div>
+                            {/* Afficher un ticket pour chaque siège sélectionné */}
+                            {selectedSeats.map((seat, index) => (
+                                <Ticket
+                                    key={index} // On utilise un index pour la clé, mais idéalement tu devrais avoir une clé unique
+                                    movieTitle={movie.title}
+                                    bgImage={movie.poster}
+                                    row={seat.row}
+                                    seat={seat.seatNumber}
+                                    date={
+                                        selectedDate &&
+                                        format(
+                                            selectedDate,
+                                            'EEEE d MMMM yyyy',
+                                            {
+                                                locale: fr,
+                                            }
+                                        )
+                                    }
+                                    time={selectedTime?.time}
+                                />
+                            ))}
                         </div>
                     )}
                 </div>

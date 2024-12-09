@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import MovieDetails from '../components/movies/movieDetails';
 import transition from '../transition';
+import '../index.css';
 
 function MoviePage() {
     const { id } = useParams();

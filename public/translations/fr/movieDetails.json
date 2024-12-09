@@ -1,0 +1,10 @@
+{
+    "menu": {
+        "firstStep": "Choisissez votre place",
+        "secondStep": "Passer au paiement"
+    },
+    "ctaBtns": {
+        "cancel": "Annuler",
+        "next": "Suivant"
+    }
+}

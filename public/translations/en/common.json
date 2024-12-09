@@ -1,0 +1,16 @@
+{
+    "hero": {
+        "heroBtn": "Book now"
+    },
+    "onDisplay": {
+        "title": "Now Playing"
+    },
+    "movies": {
+        "allMovies": "All movies",
+        "date": "By date",
+        "category": "By category",
+        "soon": "Soon",
+        "showMore": "Show more",
+        "search": "Search a movie"
+    }
+}

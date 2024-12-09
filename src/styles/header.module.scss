@@ -27,6 +27,7 @@
             cursor: pointer;
             display: flex;
             align-items: center;
+            transition: 0.2s ease-in-out;
             button {
                 background-color: black;
                 font-weight: bolder;
@@ -35,7 +36,13 @@
                 color: white;
                 border-radius: 5px;
                 padding: 10px;
+                cursor: pointer;
+                transition: 0.25s all;
+                &:hover {
+                    transform: scale(1.01);
+                }
             }
+
             #connect {
                 background-color: red;
             }

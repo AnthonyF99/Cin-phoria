@@ -1,6 +1,7 @@
 import Styles from '../../styles/movies.module.scss';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Movies() {
     const [movies, setMovies] = useState([]);
@@ -9,6 +10,8 @@ export default function Movies() {
     const [query, setQuery] = useState('');
     const [isAscending, setIsAscending] = useState(true);
     const [originalData, setOriginalData] = useState([]);
+    const [activeFilter, setActiveFilter] = useState('all');
+    const { t } = useTranslation();
 
     // Function to show more movies
     const handleShowMore = useCallback(
@@ -53,6 +56,10 @@ export default function Movies() {
         setMovies(soonMovies); // update displayed movies list
     }, [movies]);
 
+    const handleSearchClick = () => {
+        setQuery(query);
+    };
+
     //Function to search movie
     const handleSearch = useCallback((event) => {
         setQuery(event.target.value);
@@ -69,6 +76,14 @@ export default function Movies() {
             .finally(() => setLoading(false));
     }, []);
 
+    const caretMovies = () => {
+        if (isAscending) {
+            return <i className="fa-solid fa-caret-up"></i>;
+        } else {
+            return <i className="fa-solid fa-caret-down"></i>;
+        }
+    };
+
     if (loading) {
         return <div className={Styles.loading}>Chargement des films...</div>;
     }
@@ -81,27 +96,78 @@ export default function Movies() {
             <div className={Styles.moviesNav}>
                 <div className={Styles.moviesFilters}>
                     <ul>
-                        <li className={Styles.filter} onClick={resetData}>
-                            Tout les films
+                        <li
+                            className={`${Styles.filter} ${
+                                activeFilter === 'all' ? Styles.active : ''
+                            }`}
+                            onClick={() => {
+                                resetData();
+                                setActiveFilter('all');
+                            }}
+                        >
+                            {t('movies.allMovies')}
+                            {activeFilter === 'all' ? (
+                                <i className="fa-solid fa-caret-down"></i>
+                            ) : (
+                                <i className="fa-solid fa-caret-up"></i>
+                            )}
                         </li>
-                        <li className={Styles.filter} onClick={sortDate}>
-                            Par date
+                        <li
+                            className={`${Styles.filter} ${
+                                activeFilter === 'date' ? Styles.active : ''
+                            }`}
+                            onClick={() => {
+                                sortDate();
+                                setActiveFilter('date');
+                            }}
+                        >
+                            {t('movies.date')}
+                            {caretMovies()}
                         </li>
-                        <li className={Styles.filter}>Par catégorie</li>
-                        <li className={Styles.filter} onClick={comingSoon}>
-                            A venir
+                        <li
+                            className={`${Styles.filter} ${
+                                activeFilter === 'category' ? Styles.active : ''
+                            }`}
+                            onClick={() => setActiveFilter('category')}
+                        >
+                            {t('movies.category')}
+                            {activeFilter === 'category' ? (
+                                <i className="fa-solid fa-caret-down"></i>
+                            ) : (
+                                <i className="fa-solid fa-caret-up"></i>
+                            )}{' '}
+                        </li>
+                        <li
+                            className={`${Styles.filter} ${
+                                activeFilter === 'comingSoon'
+                                    ? Styles.active
+                                    : ''
+                            }`}
+                            onClick={() => {
+                                comingSoon();
+                                setActiveFilter('comingSoon');
+                            }}
+                        >
+                            {t('movies.soon')}
                         </li>
                     </ul>
                 </div>
                 <div className={Styles.moviesSearch}>
                     <ul>
                         <li>
-                            <input
-                                type="text"
-                                value={query}
-                                onChange={handleSearch}
-                                placeholder="Rechercher un film"
-                            />
+                            <div className={Styles.searchWrapper}>
+                                <input
+                                    type="text"
+                                    value={query}
+                                    onChange={handleSearch}
+                                    placeholder={t('movies.search')}
+                                    className={Styles.searchInput}
+                                />
+                                <i
+                                    onClick={handleSearchClick}
+                                    className={`fa-solid fa-magnifying-glass ${Styles.searchIcon}`}
+                                ></i>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -131,7 +197,9 @@ export default function Movies() {
             </div>
             <div className={Styles.separator}>
                 <span>
-                    <button onClick={handleShowMore}>Show more</button>
+                    <button onClick={handleShowMore}>
+                        {t('movies.showMore')}
+                    </button>
                 </span>
             </div>
         </div>

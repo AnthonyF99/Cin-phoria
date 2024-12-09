@@ -12,8 +12,31 @@
             list-style: none;
             gap: 16px;
             font-weight: bold;
+            position: relative;
             .filter {
                 cursor: pointer;
+                &.active {
+                    color: red;
+                }
+            }
+            .searchWrapper {
+                margin-right: 44px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                .searchIcon {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 12px;
+                    font-size: 18px;
+                }
+                .searchInput {
+                    padding: 10px 40px 8px 12px; /* Ajoute de l'espace à droite pour la loupe */
+                    border-radius: 15px;
+                    background-color: #ece6f0;
+                    border: none;
+                    font-size: 16px;
+                }
             }
         }
     }
